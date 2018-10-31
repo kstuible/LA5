@@ -5,7 +5,10 @@ public class MainClass {
 		// TODO Auto-generated method stub
 
 		System.out.println("hhhhh");
-		System.out.print("hellooo");
+		System.out.println("hellooo");
+		
+		System.out.println("Test2");
+
 	}
 
 }
