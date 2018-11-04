@@ -1,6 +1,12 @@
 
 public class ContactInformationFormatter implements IContactInformationFormatter {
 
+	String[] cifFilePaths;
+	String cifFileName;
+	String cifEmail;
+	String cifPhoneNumber;
+	String cifName;
+	
 	@Override
 	public void readContactInformation(String[] filePaths) {
 		
@@ -12,7 +18,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	}
 
 	@Override
-	public void formatEmail(String Email) throws EmailAddressFormatException {
+	public void formatEmail(String email) throws EmailAddressFormatException {
 		
 	}
 
