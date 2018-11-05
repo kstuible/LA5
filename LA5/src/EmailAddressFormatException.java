@@ -1,7 +1,7 @@
 
 public class EmailAddressFormatException extends Exception {
 
-	public EmailAddressFormatException() {
-		
+	public EmailAddressFormatException(String email) {
+		super(email);
 	}
 }

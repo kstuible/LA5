@@ -56,12 +56,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	@Override
 	// format one email address
 	public void formatEmail(String email) throws EmailAddressFormatException {
-			if(email.equals(email.toLowerCase())) {
-				System.out.println(email);
-			} else {
-				throw new EmailAddressFormatException();
-			}
-			
+		if(email.equals(email.toLowerCase())) {
+			System.out.println(email);
+		} else {
+			throw new EmailAddressFormatException(email);
+		}	
 	}
 		
 

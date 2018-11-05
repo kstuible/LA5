@@ -14,7 +14,9 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 
 	@Override
 	public void handleEmailFormatException(EmailAddressFormatException e) {
-		
+		String email = e.getMessage();
+		email = email.toLowerCase();
+		System.out.println(email);
 	}
 
 	@Override
