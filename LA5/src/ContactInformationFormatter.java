@@ -44,7 +44,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		try {
 			formatPhoneNumber(cifPhoneNumber);
 		} catch (PhoneNumberFormatException e) {
-			
+			handler.handlePhoneNumberFormatException(e);
 		}
 		try {
 			formatEmail(cifEmail);
@@ -71,7 +71,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		
 		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
 		phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
+		if(phoneNumber.equals(phoneNumber)) {
 		System.out.println(phoneNumber);
+		} else {
+			throw new PhoneNumberFormatException(phoneNumber);
+		}
 	}
 
 	@Override

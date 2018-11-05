@@ -9,7 +9,10 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 
 	@Override
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
-		
+		String phoneNumber = e.getMessage();
+		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
+		phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
+		System.out.println(phoneNumber);
 	}
 
 	@Override
