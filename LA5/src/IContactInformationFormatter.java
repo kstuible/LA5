@@ -10,7 +10,7 @@ public interface IContactInformationFormatter {
 	// format one email address
 	void formatEmail(String Email) throws EmailAddressFormatException;
 	
-	// format one 
+	// format one phone number
 	void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException;
 	
 	// format one name
