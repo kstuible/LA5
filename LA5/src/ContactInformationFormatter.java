@@ -39,7 +39,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		try {
 			formatName(cifName);
 		} catch (NameFormatException e) {
-			
+			handler.handleNameFormatException(e);
 		}
 		try {
 			formatPhoneNumber(cifPhoneNumber);
@@ -51,6 +51,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		} catch (EmailAddressFormatException e) {
 			handler.handleEmailFormatException(e);
 		}
+		System.out.println();
 	}
 
 	@Override
@@ -73,7 +74,17 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	@Override
 	// format one name
 	public void formatName(String name) throws NameFormatException {
+		String[] nameArr = name.split(" ");
+		String first = nameArr[0].toLowerCase();
+		String last = nameArr[1].toLowerCase();
+		String capFirst = first.substring(0,1).toUpperCase() + first.substring(1);
+		String capLast = last.substring(0,1).toUpperCase() + last.substring(1);
+		String goodName = String.join(" ", capFirst, capLast);
 		
+		if(name.equals(goodName)) {
+			System.out.println(name);
+		} else {
+			throw new NameFormatException(name);
+		}
 	}
-
 }
