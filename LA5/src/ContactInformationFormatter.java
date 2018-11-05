@@ -69,6 +69,9 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	// format one phone number
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		
+		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
+		phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
+		System.out.println(phoneNumber);
 	}
 
 	@Override
