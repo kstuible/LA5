@@ -4,6 +4,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	
 	/**
 	 * handles file not found exception, printing out that file is not found
+	 * @param e		the exception that was thrown
 	 */
 	@Override
 	public void handleFileNotFoundException(FileNotFoundException e) {
@@ -13,6 +14,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	/**
 	 * handles phone number format exception
 	 * reformats the phone number string, then prints it out 
+	 * @param e		the exception that was thrown
 	 */
 	@Override
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
@@ -25,6 +27,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	/**
 	 * handles email format exception
 	 * reformats the email string, then prints out
+	 * @param e		the exception that was thrown
 	 */
 	@Override
 	public void handleEmailFormatException(EmailAddressFormatException e) {
@@ -36,6 +39,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	/**
 	 * handles name format exception
 	 * reformats the name, then prints out
+	 * @param e		the exception that was thrown
 	 */
 	@Override
 	public void handleNameFormatException(NameFormatException e) {

@@ -65,6 +65,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	 * formats one email address
 	 * checks if email is properly formatted. If yes, prints out email. 
 	 * if not, throws EmailFormatException
+	 * @param email	a string for the email line
 	 */
 	@Override
 	public void formatEmail(String email) throws EmailAddressFormatException {
@@ -79,12 +80,13 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	 * format one phone number
 	 * checks if phone number is properly formatted, prints if yes, 
 	 * throws PhoneNumberFormatException if not
+	 * @param phoneNumber	a string for the phone number line
 	 */
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		
-		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
-		String formattedNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
+		String formattedNumber = phoneNumber.replaceAll("[^\\d.]", "");
+		formattedNumber = formattedNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
 		if(phoneNumber.equals(formattedNumber)) {
 			System.out.println(phoneNumber);
 		} else {
@@ -96,6 +98,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	 * format one name
 	 * checks if name is properly formatted, if yes, prints it out, if not, 
 	 * throws NameFormatException
+	 * @param name	a string for the name line
 	 */
 	@Override
 	public void formatName(String name) throws NameFormatException {
