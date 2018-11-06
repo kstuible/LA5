@@ -11,7 +11,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	
 	/**
 	 * read contact information from a list of files, given file paths
-	 *  
+	 * loops through the files, storing lines as strings to be used in the formatter
+	 * @param filePaths	a string array, the array of file names to be read
 	 */
 	@Override
 	public void readContactInformation(String[] filePaths) {
@@ -37,7 +38,9 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	}
 	/**
 	 * format the contact information in one file
-	 * 
+	 * reads in each line of the file, tries to format each, and catches then handles the exception 
+	 * thrown if the information is not properly formatted
+	 * @param fileName	a String of the name of the file being formatted
 	 */
 	@Override
 	public void formatContactInformation(String fileName) {
@@ -59,8 +62,9 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		System.out.println();
 	}
 	/**
-	 * format one email address
-	 * 
+	 * formats one email address
+	 * checks if email is properly formatted. If yes, prints out email. 
+	 * if not, throws EmailFormatException
 	 */
 	@Override
 	public void formatEmail(String email) throws EmailAddressFormatException {
@@ -73,7 +77,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		
 	/**
 	 * format one phone number
-	 * 
+	 * checks if phone number is properly formatted, prints if yes, 
+	 * throws PhoneNumberFormatException if not
 	 */
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
@@ -81,7 +86,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
 		String formattedNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
 		if(phoneNumber.equals(formattedNumber)) {
-		System.out.println(phoneNumber);
+			System.out.println(phoneNumber);
 		} else {
 			throw new PhoneNumberFormatException(phoneNumber);
 		}
@@ -89,6 +94,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 
 	/**
 	 * format one name
+	 * checks if name is properly formatted, if yes, prints it out, if not, 
+	 * throws NameFormatException
 	 */
 	@Override
 	public void formatName(String name) throws NameFormatException {
