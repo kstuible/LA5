@@ -1,12 +1,18 @@
 import java.io.FileNotFoundException;
 
 public class FormatExceptionHandler implements IFormatExceptionHandler {
-
+	
+	/**
+	 * handles file not found exception
+	 */
 	@Override
 	public void handleFileNotFoundException(FileNotFoundException e) {
 		System.out.println("File not Found!");
 	}
-
+	
+	/**
+	 * handles phone number format exception
+	 */
 	@Override
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
 		String phoneNumber = e.getMessage();
@@ -14,14 +20,20 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 		phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
 		System.out.println(phoneNumber);
 	}
-
+	
+	/**
+	 * handles email format exception
+	 */
 	@Override
 	public void handleEmailFormatException(EmailAddressFormatException e) {
 		String email = e.getMessage();
 		email = email.toLowerCase();
 		System.out.println(email);
 	}
-
+	
+	/**
+	 * handles name format exception
+	 */
 	@Override
 	public void handleNameFormatException(NameFormatException e) {
 		String name = e.getMessage();

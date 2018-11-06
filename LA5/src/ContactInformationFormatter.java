@@ -9,8 +9,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	String cifName;
 	FormatExceptionHandler handler = new FormatExceptionHandler();
 	
+	/**
+	 * read contact information from a list of files, given file paths
+	 *  
+	 */
 	@Override
-	// read contact information from a list of files, given file paths
 	public void readContactInformation(String[] filePaths) {
 		
 		for(int i = 0; i < filePaths.length; i++) {
@@ -32,9 +35,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			}
 		}
 	}
-
+	/**
+	 * format the contact information in one file
+	 * 
+	 */
 	@Override
-	// format the contact information in one file
 	public void formatContactInformation(String fileName) {
 		try {
 			formatName(cifName);
@@ -53,9 +58,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		}
 		System.out.println();
 	}
-
+	/**
+	 * format one email address
+	 * 
+	 */
 	@Override
-	// format one email address
 	public void formatEmail(String email) throws EmailAddressFormatException {
 		if(email.equals(email.toLowerCase())) {
 			System.out.println(email);
@@ -64,22 +71,26 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		}	
 	}
 		
-
+	/**
+	 * format one phone number
+	 * 
+	 */
 	@Override
-	// format one phone number
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		
 		phoneNumber = phoneNumber.replaceAll("[^\\d.]", "");
-		phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
-		if(phoneNumber.equals(phoneNumber)) {
+		String formattedNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
+		if(phoneNumber.equals(formattedNumber)) {
 		System.out.println(phoneNumber);
 		} else {
 			throw new PhoneNumberFormatException(phoneNumber);
 		}
 	}
 
+	/**
+	 * format one name
+	 */
 	@Override
-	// format one name
 	public void formatName(String name) throws NameFormatException {
 		String[] nameArr = name.split(" ");
 		String first = nameArr[0].toLowerCase();

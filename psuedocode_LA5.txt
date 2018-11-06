@@ -1,0 +1,76 @@
+Psuedocode - LA5 - Kevin Stuible and Matt Kaz
+
+Class - MainClass
+
+
+method(main)
+
+	Creates string array with the ten test cases.
+
+	Creates instance of ContactInformationFormatter class.
+
+	calls readContactInformation method.
+
+Class - ContactInformationFormatter
+
+
+method(readContactInformation)
+
+	for loop itterating through all of the files in the filePaths array.
+		
+		assigning name, phoneNumber, and email to the first, second, and third
+		read by scanner.
+		
+		calls formatContactInformation method.
+		
+		catches file not found exception.
+
+method(formatContactInformation)
+	
+	trys for formatname, phonenumber, and email with catches for each of them
+	calling the appropriate handle method.
+
+method(formatEmail)
+	
+	checks if email is in the correct format. If it is it will print out the email.
+
+	if not, throws new EmailAddressFormatException.
+
+method(formatPhoneNumber) 
+
+	checks if phone number is in the correct format. If it is, it will print out the number.
+
+	if not, throws new PhoneNumberFormatException.
+
+method(formatName)
+
+	checks if name is in the correct format. If it is, it will print out the name.
+
+	if not, throws new NameFormatException.
+
+Class - FormatExceptionHandler
+
+
+method(handleFileNotFoundException)
+	
+	prints out statement if method is called.
+
+method(handlePhoneNumberFormatException)
+
+	replaces the string given with a string of only integers.
+	
+method(handleEmailFormatException)
+	
+	sets email given to lower case letters.
+
+method(handleNameFormatException)
+
+	splits the name by the space into a first and last name, then sets both to lower case.
+	Then capitalizes the first character in each string.
+	
+	joins first and last name to a correct format.
+	
+
+	
+
+	
